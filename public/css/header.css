@@ -1,0 +1,74 @@
+body{
+	background-color: rgba(0,0,0,0.05);
+}
+header{
+	height: 150px;
+	background-color: rgba(0,0,0,0.9);
+	padding-left: 0!important;
+	padding-right: 0!important;
+}
+
+@font-face {
+ 	 font-family: Crass;
+  	src: url(../fonts/Crass.ttf);
+}
+@font-face {
+  	font-family: Mightype;
+  	src: url(../fonts/Mightype.otf);
+}
+.title h1{
+	padding-top: 25px;
+	color: rgb(255,106,2);
+	font-family: Crass;
+    padding-left: 50px;
+}
+.title p{
+	color: white;
+	padding-left: 50px;
+	font-size: 16px;
+}
+#contact{
+	position: absolute;
+	right: 10px;
+	padding-top: 10px;
+}
+#contact ul li{
+	padding-top: 10px;
+	line-height: 20px;
+	list-style: none;
+	color: white;
+}
+.btn-light{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: .25rem;
+	border-top-right-radius: .25rem;
+	border-top-left-radius: 0px;
+}
+.input-group{
+	padding-top: 50px;
+}
+nav{
+	background-color: rgb(255,106,2)!important;
+}
+.header{
+	background-color: #ff5200;
+	color: white;
+}
+.slide{
+	padding-top: 25px;
+	padding-left: 30px;
+}
+.container-fluid{
+	padding-left: 0!important;
+	padding-right: 0!important;
+}
+.content{
+	background-color: white;
+	height: 1050px;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+.list-group{
+	padding-top: 20px;
+	padding-left: 30px;
+}

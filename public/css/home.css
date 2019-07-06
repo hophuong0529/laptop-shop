@@ -1,0 +1,22 @@
+.productName, .price, .order{
+	text-align: center;
+}
+.productName{
+	font-weight: bold;
+}
+.thumbnail a{
+	margin-right: 5px; 
+}
+.thumbnail{
+	padding: 20px;
+}
+.order{
+	padding-top: 10px;
+}
+.home span{
+	font-family: Mightype; 
+	font-size: 40px;
+}
+.home{
+	text-align: center;
+}
