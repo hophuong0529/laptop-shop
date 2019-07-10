@@ -17,7 +17,7 @@
 				<a class="nav-link" href="#">TIN TỨC</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">SẢN PHẨM</a>
+				<a class="nav-link" href="#show">SẢN PHẨM</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">LIÊN HỆ</a>

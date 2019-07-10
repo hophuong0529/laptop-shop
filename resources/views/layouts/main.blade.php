@@ -24,8 +24,14 @@
 		   document.getElementById('ads').style.display = 'block';
 		}   
 	</script> -->
+	<script type="text/javascript">
+		if (window.location.pathname === '/') {
+			document.getElementById("ads").style.display = "block";
+		}
+	</script>
 	<script src="/js/app.js?v={{env('APP_ENV') == 'local' ? time() : base64(2)}}"></script>	
 	<script src="/js/nav.js"></script>
 	@stack("scripts")
+	
 </body>
 </html>	

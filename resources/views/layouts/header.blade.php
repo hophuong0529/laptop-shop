@@ -19,7 +19,7 @@
 				<p><i class="fa fa-star"></i> Hệ thống bán lẻ laptop cũ, mới số 1 Việt Nam.</p>
 			</div>
 		</div>
-		<div class="col-md-2" id="contact">
+		<div class="col-md-3" id="contact">
 			<ul>
 				<li>Gọi đặt hàng :<br><i class="fa fa-phone" style="font-size:15px "></i><span style="font-size: 13px"> 094.692.0529</span></li>
 				<li>Gọi tư vấn :<br><i class="fa fa-phone" style="font-size:15px "></i><span style="font-size: 13px"> 035.981.3619</span></li>
