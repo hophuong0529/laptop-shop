@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','Ccontroller@search');
+Route::get('/{action?}','Ccontroller@index');
 
-Route::get('search/{type?}/{id?}','Ccontroller@search');
+Route::get('search/{action?}/{id?}','Ccontroller@search');
 
 Route::get('login', function () {
     return view('login');
@@ -20,4 +20,26 @@ Route::get('login', function () {
 
 Route::post('login','Ccontroller@postLogin');
 
-Route::get('logout','Ccontroller@logOut');
+Route::get('register', function () {
+    return view('register');
+});
+
+Route::post('register','Ccontroller@postRegister');
+
+Route::get('cart/{action?}/{id?}', 'Ccontroller@cart');
+
+Route::post('cart/{action?}/{id?}', 'Ccontroller@cart');
+
+Route::post('order','Ccontroller@postOrder');
+
+Route::post('updateinfo','Ccontroller@updateInfo');
+
+Route::get('viewInfo', function () {
+    return view('viewInfo');
+});
+
+Route::get('changeInfo', function () {
+    return view('changeInfo');
+});
+
+Route::get('detailProduct/{id}','Ccontroller@showDetail');

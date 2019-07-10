@@ -2,7 +2,7 @@
 
   <h6 class="list-group-item header"><i class="fa fa-bars"></i>&emsp;DANH MỤC SẢN PHẨM</h6>
 
-  <?php $brands=DB::table('categories')->where('status',1)->get(); ?>
+  <?php $brands=DB::table('brands')->where('status',1)->get(); ?>
 
    @foreach($brands as $brand)
 

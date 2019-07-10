@@ -9,13 +9,13 @@
 						<div class="thumbnail">
 							<img width="160px" height="175px" src="/img/products/{{$rs->productImage}}">
 							<div class="productName">
-								{{$rs->productName}}
+								<a href="{{url('detailProduct/'.$rs->id)}}" style="color: #ba1826;">{{$rs->productName}}</a>
 							</div>	
 							<div class="price">
 								{{number_format($rs->productPrice,0,',','.')}} vnd
 							</div>
 							<div class="order">
-								<a href="{{url('cart/add/'.$rs->id)}}" class="btn btn-outline-danger">Order</a>
+								<a href="{{url('cart/add/'.$rs->id)}}" class="btn btn-outline-danger" style="width: 100px;">Đặt mua</a>
 							</div>
 						</div>
 					</div>

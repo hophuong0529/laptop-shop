@@ -1,0 +1,10 @@
+.orders h1{
+	padding-left: 150px; 
+	margin-right: 150px;
+}
+.orders h3{
+	padding-bottom: 10px;
+}
+.orders label{
+	font-weight: bold;
+}

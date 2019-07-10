@@ -23,7 +23,7 @@
 			<input type="password" class="form-control" name="password">
 		</section>
 		<section class="form-group">
-			<input type="submit" class="btn btn-outline-dark btn-login" value="Login">
+			<input type="submit" class="btn btn-outline-dark btn-login" value="Đăng nhập">
 		</section>
 	</form>	
 	

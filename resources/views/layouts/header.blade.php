@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-4 title">
 			<h1>LAPTOP</h1>
-			<p>- UY TÍN<br>- CHẤT LƯỢNG</p>	
+			<p><i class="fa fa-check"></i> UY TÍN<br><i class="fa fa-check"></i> CHẤT LƯỢNG</p>	
 		</div>
 		<div class="col-md-5">
 			<form method="get" action="{{url('search/findKey')}}">
@@ -15,6 +15,9 @@
 					</div>
 				</div>
 			</form>
+			<div class="text">
+				<p><i class="fa fa-star"></i> Hệ thống bán lẻ laptop cũ, mới số 1 Việt Nam.</p>
+			</div>
 		</div>
 		<div class="col-md-2" id="contact">
 			<ul>
@@ -25,7 +28,7 @@
 	</div>			
 </header>
 @include('layouts/nav')
-<div class="container-fluid">
+<div class="container-fluid" id="ads" style="display: none;">
 	<div class="row">
 		<div class="col-md-4">
 			<img src="/img/left.jpg" style="width: 107%; padding-top: 20px; padding-left: 30px;">

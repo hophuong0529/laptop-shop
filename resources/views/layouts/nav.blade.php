@@ -30,11 +30,11 @@
 		
 			@if(session('user'))
 			<li class="nav-item dropdown">
-				<span class="nav-link dropdown-toggle" data-toggle="dropdown">Hello, {{session('user')}}</span>
+				<span class="nav-link dropdown-toggle active" data-toggle="dropdown">Xin chào, {{session('user')}}</span>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="{{url('logout')}}">Đăng xuất</a>
+					<a class="dropdown-item" href="{{url('viewInfo')}}">Xem thông tin tài khoản</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Cài đặt tài khoản</a>
+					<a class="dropdown-item" href="{{url('logout')}}">Đăng xuất</a>
 				</div>
 			</li>
 			@else
@@ -42,11 +42,11 @@
 				<a class="nav-link" href="{{url('login')}}">Đăng nhập</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Đăng ký</a>
+				<a class="nav-link" href="{{url('register')}}">Đăng ký</a>
 			</li>
 			@endif
 			<li class="nav-item">
-				<a class="nav-link" href="#"><i class="fa fa-shopping-basket" style="font-size: 15px;"></i> Giỏ hàng</a>
+				<a class="nav-link" href="{{url('cart')}}"><i class="fa fa-shopping-basket" style="font-size: 15px;"></i> Giỏ hàng</a>
 			</li>
 		</ul>		
 	</div>
