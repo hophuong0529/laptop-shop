@@ -51,9 +51,9 @@ class Ccontroller extends Controller
 				$this->data['member'] = $member ?? [];
 				$this->data['title'] = 'Thông tin tài khoản';
 
-			}elseif($action=='detailProduct'){
+			}elseif($action=='cart'){
 				
-				
+				$this->data['title'] = "Giỏ hàng của bạn";
 			}
 			return view("$action",$this->data);
 

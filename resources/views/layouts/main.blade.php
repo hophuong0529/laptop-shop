@@ -7,6 +7,7 @@
 	<title>{{ $title ?? "" }}</title>
 	<link rel="stylesheet" href="/css/app.css">	
 	<link rel="stylesheet" href="/css/header.css">
+	<link rel="stylesheet" href="/css/footer.css">
 	@stack("styles")
 </head>
 <body>
@@ -19,11 +20,8 @@
 		<div class="col-md-9 content">
 			@yield("content")
 		</div>	
-	<!-- <script>
-		$(document).on('load',"url('/')",function(e) {
-		   document.getElementById('ads').style.display = 'block';
-		}   
-	</script> -->
+	</div>	
+	@include('layouts/footer')
 	<script type="text/javascript">
 		if (window.location.pathname === '/') {
 			document.getElementById("ads").style.display = "block";

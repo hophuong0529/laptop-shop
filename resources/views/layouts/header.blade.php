@@ -30,10 +30,10 @@
 @include('layouts/nav')
 <div class="container-fluid" id="ads" style="display: none;">
 	<div class="row">
-		<div class="col-md-4">
-			<img src="/img/left.jpg" style="width: 107%; padding-top: 20px; padding-left: 30px;">
+		<div class="col-md-3">
+			<img src="/img/left1.jpg" style="width: 385px;height: 313.2px; padding-top: 20px; padding-left: 45px;">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-9" style="padding-left: 40px;">
 			@include('layouts/carousel')
 		</div>
 	</div>	

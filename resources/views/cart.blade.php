@@ -10,6 +10,7 @@ $products=DB::table('products')->whereIn('id',array_keys(session('cart')))->get(
 	//tương tự  select *from products where id in(array_keys(session('cart')))
 ?>
 <br>
+<?php $tongTien = 0; ?>			
 <h1><center>Giỏ hàng của bạn</h1>
 	<div style="padding-top: 20px; padding-left: 40px; padding-right: 40px;">
 		<form method="post" action="{{url('cart/update')}}" id= "frm">
@@ -19,8 +20,8 @@ $products=DB::table('products')->whereIn('id',array_keys(session('cart')))->get(
 				<div class="col-md-2">Tên sản phẩm</div>	
 				<div class="col-md-2">Giá sản phẩm</div>
 				<div class="col-md-2">Số lượng</div>
-				<div class="col-md-2">Tổng tiền</div>
-				<div class="col-md-2">Xóa</div>	
+				<div class="col-md-2">Thành tiền</div>
+				<div class="col-md-2"></div>	
 			</div>
 			<hr>
 			@foreach($products as $product)
@@ -37,20 +38,33 @@ $products=DB::table('products')->whereIn('id',array_keys(session('cart')))->get(
 				<div class="col-md-2 text-cart">
 					<input class="form-control form-control-sm" min="1" max="99" type="number" name="{{$product->id}}" value='{{session("cart.$product->id")}}'>
 				</div>
-				<div class="col-md-2 text-cart">{{number_format($product->productPrice*session("cart.$product->id"),0,',','.')}} vnd</div>
-				<div class="col-md-2 text-cart"><a href="{{url('cart/delete/'.$product->id)}}" class="btn btn-outline-danger btn-sm">Delete</a>
+				<div class="col-md-2 text-cart">{{number_format($product->productPrice*session("cart.$product->id"),0,',','.')}}</div>
+				<?php $tongTien = $tongTien + $product->productPrice*session("cart.$product->id"); ?>
+				<div class="col-md-2 text-cart"><a href="{{url('cart/delete/'.$product->id)}}" class="btn btn-danger" style="width: 100px;">Xóa</a>
 				</div>
-			</div>	
+			</div>
 			<hr>
 			@endforeach
 		</form>
+		<div class="cart row" style="font-weight: bold;">
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2" style="line-height: 55px;">Tổng tiền :</div>
+				<div class="col-md-2" style="color: red; line-height: 50px; font-size: 18px;">{{number_format($tongTien,0,',','.')}} ₫</div>
+				<div class="col-md-2"></div>
+		</div>
+		<hr>
 		<div>
-			<a onclick="return confirm('Bạn có chắc xóa tất cả trong giỏ hàng ?')" class="btn btn-danger" href="{{url('cart/deleteall')}}">Delete All</a>
-			&nbsp;<input type="submit" value="Update Cart" form="frm" class="btn btn-success">
-			&nbsp;<a href="{{url('cart/order')}}" class="btn btn-primary">Order</a>
+			<a onclick="return confirm('Bạn có chắc xóa tất cả trong giỏ hàng ?')" class="btn btn-danger" href="{{url('cart/deleteall')}}" style="width: 150px;">Xóa tất cả</a>
+			&nbsp;
+			<input type="submit" value="Cập nhật giỏ hàng" form="frm" class="btn btn-success" style="width: 150px;">
+			&nbsp;
+			<a href="{{url('cart/order')}}" class="btn btn-primary" style="width: 150px;">Đặt hàng</a></div>
 		</div>
 		@else
 		<div style="text-align: center;" class="alert alert-warning">Giỏ hàng trống</div>
 	</div>
+	
 	@endif
 	@stop

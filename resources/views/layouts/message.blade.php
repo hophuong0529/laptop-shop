@@ -1,4 +1,4 @@
-<div class="card mess" id="mess">	
+<div class="card mess" id="mess" style="bottom: 20px; left: 10px;">	
 	<div class="card-body" style="padding-top: 15px;">
 		<div class="name">
 			Laptop.cc

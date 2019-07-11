@@ -1,0 +1,30 @@
+footer .footer-widget h4 {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+footer ul{
+	list-style: none inside;
+}
+footer{
+	background-color: black; 
+	margin-top: 20px;
+}
+footer span{
+	color: white;
+}
+footer .footer-widget .list-menu a {
+    color: #a3a3a3;
+    display: block;
+    font-size: 14px;
+}
+footer p{
+	color: white;
+}
+.head{	
+	height: 28px; 
+	background-color: #0d0d0d; 
+	line-height: 28px;
+	text-align: center;
+}

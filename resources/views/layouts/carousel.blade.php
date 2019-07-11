@@ -3,16 +3,20 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/img/1.png" style="width: 828px; height: 288px;">
+      <img src="/img/1.png" style="width: 920px; height: 293px;">
     </div>
     <div class="carousel-item">
-      <img src="/img/2.png" style="width: 828px; height: 288px;">
+      <img src="/img/2.png" style="width: 920px; height: 293px;">
     </div> 
     <div class="carousel-item">
-      <img src="/img/3.png" style="width: 828px; height: 288px;">
+      <img src="/img/3.png" style="width: 920px; height: 293px;">
+    </div>
+    <div class="carousel-item">
+      <img src="/img/4.jpg" style="width: 920px; height: 293px;">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

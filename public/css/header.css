@@ -56,7 +56,7 @@ nav{
 	color: white;
 }
 .slide{
-	padding-top: 25px;
+	padding-top: 20px;
 	padding-left: 30px;
 }
 .container-fluid{
@@ -94,7 +94,8 @@ nav{
     display: flex;
     flex-direction: column;
     position: fixed;
-    z-index: 1000;  
+    z-index: 9;  
+    cursor: pointer;
 }
 .subButtonText {
     color: rgba(0, 0, 0, .45);
