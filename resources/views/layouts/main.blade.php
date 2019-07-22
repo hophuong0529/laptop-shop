@@ -21,6 +21,7 @@
 			@yield("content")
 		</div>	
 	</div>	
+	@include('layouts/news')
 	@include('layouts/footer')
 	<script type="text/javascript">
 		if (window.location.pathname === '/') {

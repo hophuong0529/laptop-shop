@@ -20,16 +20,16 @@ header{
 	padding-top: 25px;
 	color: rgb(255,106,2);
 	font-family: Crass;
-    padding-left: 60px;
+    padding-left: 100px;
 }
 .title p{
 	color: white;
-	padding-left: 60px;
+	padding-left: 100px;
 	font-size: 15px;
 }
 #contact{
 	position: absolute;
-	right: 10px;
+	right: 20px;
 	padding-top: 20px;
 }
 #contact ul li{
@@ -49,14 +49,14 @@ header{
 }
 nav{
 	background-color: rgb(255,106,2)!important;
-	z-index: 1000;
+	z-index: 999;
 }
 .header{
 	background-color: #ff5200;
 	color: white;
 }
 .slide{
-	padding-top: 20px;
+	padding-top: 25px;
 	padding-left: 30px;
 }
 .container-fluid{
@@ -65,7 +65,7 @@ nav{
 }
 .content{
 	background-color: white;
-	height: 1060px;
+	height: 1100px;
 	margin-top: 20px;
 	padding-top: 20px;
 }
@@ -86,7 +86,7 @@ nav{
 }
 .mess{
 	width: 392px;
-	height: 205px;
+	height: 210px;
     background-color: #fff;
     border-radius: 12px;
     bottom: 0;
@@ -94,7 +94,7 @@ nav{
     display: flex;
     flex-direction: column;
     position: fixed;
-    z-index: 9;  
+    z-index: 1000;  
     cursor: pointer;
 }
 .subButtonText {
@@ -116,4 +116,14 @@ nav{
 	color: rgba(0, 0, 0, .45);
 	font-size: 12px; 
 	padding-left: 75px;
+}
+.card-title a:hover{
+	color: rgb(255,106,2);
+}
+
+.card-title a{
+	color: #ba1826;
+}
+.row{
+	margin-right: 0px;
 }

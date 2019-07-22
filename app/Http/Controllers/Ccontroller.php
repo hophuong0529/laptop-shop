@@ -10,67 +10,98 @@ use App\Order;
 use App\Product;
 use App\OrderDetail;
 use App\Price;
+use App\News;
+use App\Feedback;
 
 class Ccontroller extends Controller
 {
-	function index($action=null){
+	public function index(){
 
-		if($action=='logout'){
-
-			session()->forget('user');
-			return redirect('/');
-
-		}else{
-
-			if ($action==null){
-
-				$this->data['title'] = 'Trang chủ';
-				$products=Product::where('status',1)->get();
-				$this->data['products'] = $products ?? [];
-				$action='home';
-
-			}elseif ($action=='login'){
-
-				$this->data['title'] = 'Đăng nhập';
-
-			}elseif ($action=='register'){
-
-				$this->data['title'] = 'Đăng ký';
-
-			}elseif ($action=='order'){
-
-				$this->data['title'] = 'Đặt hàng';
-				$member = Member::where('username',session('user'))->first();
-				$ordermethods = OrderMethod::where('status',1)->get();
-				$this->data['member'] = $member ?? [];
-				$this->data['ordermethods'] = $ordermethods ?? [];
-
-			}elseif($action=='viewInfo' || $action=='changeInfo'){
-
-				$member = Member::where('username',session('user'))->first();
-				$this->data['member'] = $member ?? [];
-				$this->data['title'] = 'Thông tin tài khoản';
-
-			}elseif($action=='cart'){
-				
-				$this->data['title'] = "Giỏ hàng của bạn";
-			}
-			return view("$action",$this->data);
-
-		}
-
+		$this->data['title'] = 'Laptop';
+		$products=Product::where('status',1)->get();
+		$this->data['products'] = $products ?? [];
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		return view('home',$this->data);
 	}
 
-	function search($action=null,$id=null,Request $request){
+	public function introduce(){
+
+		$this->data['title'] = 'Giới thiệu';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];	
+		return view('introduce',$this->data);
+	}
+
+	public function contact(){
+
+		$this->data['title'] = 'Liên hệ';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];	
+		return view('contact',$this->data);
+	}
+
+	public function register(){
+
+		$this->data['title'] = 'Đăng ký';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];	
+		return view('register',$this->data);
+	}
+
+	public function login(){
+
+		$this->data['title'] = 'Đăng nhập';	
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		return view('login',$this->data);
+	}
+	
+	public function order(){
+
+		$this->data['title'] = 'Đặt hàng';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		$member = Member::where('username',session('user'))->first();
+		$ordermethods = OrderMethod::where('status',1)->get();
+		$this->data['member'] = $member ?? [];
+		$this->data['ordermethods'] = $ordermethods ?? [];
+
+		return view('order',$this->data);
+	}
+
+	public function vInfo(){
+
+		$this->data['title'] = 'Thông tin tài khoản';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		$member = Member::where('username',session('user'))->first();
+		$this->data['member'] = $member ?? [];
+
+		return view("viewInfo",$this->data);
+	}	
+
+	public function cInfo(){
+
+		$this->data['title'] = 'Chỉnh sửa thông tin tài khoản';	
+		$news= News::whereIn('id', [3,2,5])->get()->get();
+		$this->data['news'] = $news ?? [];
+		$member = Member::where('username',session('user'))->first();
+		$this->data['member'] = $member ?? [];
+
+
+		return view("changeInfo",$this->data);	
+	}	
+
+
+	public function search($action=null,$id=null,Request $request){
 
 		if($action=='mahang'){
 
-			$this->data['title'] = 'Kết quả tìm kiếm';
 			$products = Product::where('status',1)->where('hangId',$id)->get();
 
 		}elseif ($action=='mucgia') {
 
-			$this->data['title'] = 'Kết quả tìm kiếm';
 			$mucgia=Price::where('id',$id)->first();
 
 			$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)
@@ -79,16 +110,18 @@ class Ccontroller extends Controller
 
 		}elseif ($action=='findKey'){
 
-			$this->data['title'] = 'Kết quả tìm kiếm';
 			$key=$request->input('keyword');
 			$products=Product::where('productName','like','%'.$key.'%')->get();		
 		}
 
 		$this->data['products'] = $products ?? [];
+		$this->data['title'] = 'Kết quả tìm kiếm';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
 		return view('home',$this->data);
 	}
 
-	function postLogin(Request $request){
+	public function postLogin(Request $request){
 
 		$username=$request->input('username');
 
@@ -104,7 +137,7 @@ class Ccontroller extends Controller
 		}
 	}
 
-	function postRegister(Request $request){
+	public function postRegister(Request $request){
 
 		$username=$request->input('username');
 		$result=Member::where('username',$username)->first();
@@ -136,7 +169,7 @@ class Ccontroller extends Controller
 		}
 	}
 
-	function cart($action=null,$id=null,Request $request){
+	public function cart($action=null,$id=null,Request $request){
 		switch ($action) {
 			case 'order':
 			if(session('user')):
@@ -152,31 +185,34 @@ class Ccontroller extends Controller
 			return redirect("cart");
 			break;
 			case 'add':
-				if(session("cart.$id")){
-					session(["cart.$id"=>session("cart.$id")+1]);
-				}else{
-					session(["cart.$id"=>1]);	
-				}
-				return redirect('cart');
-				break;
-		
+			if(session("cart.$id")){
+				session(["cart.$id"=>session("cart.$id")+1]);
+			}else{
+				session(["cart.$id"=>1]);	
+			}
+			return redirect('cart');
+			break;
+
 			case 'delete':
-				session()->forget("cart.$id");
-				return redirect('cart');
-				break;	
+			session()->forget("cart.$id");
+			return redirect('cart');
+			break;	
 			case 'deleteall':
-				session()->forget('cart');
-				return redirect('cart');
-				break;
+			session()->forget('cart');
+			return redirect('cart');
+			break;
 
 			default:
-				return view('cart');
-				break;	
+			$this->data['title'] = 'Giỏ hàng của bạn';
+			$news= News::whereIn('id', [3,2,5])->get();
+			$this->data['news'] = $news ?? [];	
+			return view('cart',$this->data);
+			break;	
 		}
 	}
 
-	public function postOrder(Request $request)
-	{
+	public function postOrder(Request $request){
+		
 		$member=Member::where('username',session('user'))->first();
 		$userId=$member->id;
 		$methodId=$request->input('methodId');
@@ -197,6 +233,7 @@ class Ccontroller extends Controller
 				'price'=>$price
 			]);
 		endforeach;
+		session()->forget("cart");
 		return redirect()->back()->with('alert','success');
 	}
 
@@ -214,12 +251,63 @@ class Ccontroller extends Controller
 
 	public function showDetail($id){
 
-		$product = Product::where('id',$id)->first();
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		$product = Product::find($id);
+		$this->data['title'] = $product->productName;
 		$this->data['product'] = $product ?? [];
-		$this->data['title'] = 'Thông tin chi tiết sản phẩm';
 		
 		return view('detailProduct',$this->data);
+	}
+
+	public function showNew($id){
+
+		
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		$new= News::find($id);
+		$this->data['title'] = $new->title;
+		$this->data['new'] = $new ?? [];
+		
+		return view('detailNew',$this->data);
+	}
+
+	public function news(){
+
+		$this->data['title'] = 'Tin tức';
+		$news= News::whereIn('id', [3,2,5])->get();
+		$this->data['news'] = $news ?? [];
+		$newss= News::get();
+		$this->data['newss'] = $newss ?? [];
+		return view('showNews',$this->data);
+	}
+
+	public function logout(){
+
+		session()->forget('user');
+		return redirect('/');
+	}
+
+	public function postContact(Request $request){
+
+		$sender=$request->input('sender');
+		$mobile=$request->input('mobile');
+		$email=$request->input('email');
+		$title=$request->input('title');
+		$content=$request->input('content');
+
+		Feedback::insert([
+
+			'sender'=>$sender,
+			'mobile'=>$mobile,
+			'email'=>$email,
+			'title'=>$title,
+			'content'=>$content
+		]);
+		echo "<script>alert('Gửi thư thành công ! Vui lòng chờ phản hồi của chúng tôi.'); 
+		location='.'</script>";	
 
 	}
 
-}		
+}	
+

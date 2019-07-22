@@ -8,7 +8,7 @@ footer ul{
 	list-style: none inside;
 }
 footer{
-	background-color: black; 
+	background-color: rgba(0,0,0,0.9); 
 	margin-top: 20px;
 }
 footer span{
@@ -24,7 +24,7 @@ footer p{
 }
 .head{	
 	height: 28px; 
-	background-color: #0d0d0d; 
+	background-color: black; 
 	line-height: 28px;
 	text-align: center;
 }

@@ -1,7 +1,10 @@
-.info label{
+.login span{
+	font-size: 30px;
+	text-align: center;
 	font-weight: bold;
+	margin-bottom: 20px;
 }
-.info{
+.login{
 	padding: 50px 60px 60px 60px;
 	background-color: white;
 	border: #ff5200 thin solid; 
@@ -13,18 +16,9 @@
 .content{
 	background-color: rgba(0,0,0,0)!important;
 	padding-top: 0!important;
-	height: 720px!important;
+	height: 800px!important;
 }
-.info h1{
-	font-size: 30px;
-	font-weight: bold;
-	margin-bottom: 30px;
-	text-align: center;
-}
-.info .btn{
-	margin-top: 25px;
-	width: 200px;
-}
-.info span{
-	float: right;
+.btn-login{
+	margin-top: 30px;
+	width: 100px;
 }

@@ -11,19 +11,16 @@
 				<a class="nav-link" href="/">TRANG CHỦ <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">GIỚI THIỆU</a>
+				<a class="nav-link" href="{{url('introduce')}}">GIỚI THIỆU</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">TIN TỨC</a>
+				<a class="nav-link" href="{{url('news')}}">TIN TỨC</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#show">SẢN PHẨM</a>
+				<a class="nav-link" href="{{url('products')}}">SẢN PHẨM</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">LIÊN HỆ</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">TUYỂN DỤNG</a>
+				<a class="nav-link" href="{{url('contact')}}">LIÊN HỆ</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav justify-content-end">

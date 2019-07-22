@@ -1,6 +1,4 @@
 @extends('layouts.main')
-@push("styles")
-@endpush
 @section('content')
 <div style="padding-top: 50px; padding-right: 60px;">
 	<div class="row">
@@ -22,8 +20,7 @@
 		<div style="padding-left: 70px; padding-top: 60px;">
 			<h4>Mô tả sản phẩm : </h4>
 			<br>
-			<p>{{$product->productDescription}}</p>
-
+			<?= html_entity_decode($product->productDescription); ?>
 		</div>
 	</div>
 @stop

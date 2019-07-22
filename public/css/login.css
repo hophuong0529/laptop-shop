@@ -16,6 +16,7 @@
 .content{
 	background-color: rgba(0,0,0,0)!important;
 	padding-top: 0!important;
+	height: 550px!important;
 }
 .btn-login{
 	margin-top: 30px;

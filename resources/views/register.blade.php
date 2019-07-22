@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @push("styles")
-<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/register.css">
 @endpush
 @section('content')
 <div class="login">
