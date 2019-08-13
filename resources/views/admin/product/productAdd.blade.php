@@ -1,17 +1,25 @@
 @extends('admin.ad-nav')
 @section('content')
 <h1 style="padding: 30px; text-align: center;">Thêm sản phẩm</h1>
+@if ($errors->any())
+<div class="alert alert-danger">
+	@foreach ($errors->all() as $error)
+	{{ $error }}<br>
+	@endforeach
+</div>
+@endif 
 <div>
 	<form method="post" enctype="multipart/form-data">
 		@csrf
 		<table class="table table-boredred">
 			<tbody>
 				<tr>
-					<td style="font-weight: bold;">Hãng : </td>
+					<td style="font-weight: bold;" width="25%">Hãng : </td>
 					<td>
-						<select name="hangId">
-							@foreach($brands as $hang)
-							<option value="{{$hang->id}}">{{$hang->tenHang}}</option>
+						<select name="brandId" class="custom-select">		
+							<option selected>Danh sách các hãng</option>
+							@foreach($brands as $brand)
+							<option value="{{$brand->id}}">{{$brand->tenHang}}</option>
 							@endforeach
 						</select>
 					</td>
@@ -26,7 +34,12 @@
 				</tr>
 				<tr>
 					<td style="font-weight: bold;">Hình ảnh sản phẩm :</td>
-					<td>Chọn tệp :&emsp; <input type="file" name="productImage"></td>
+					<td>
+						<div class="custom-file">   
+							<label class="custom-file-label" for="customFile">Chọn file ...</label>
+							<input type="file" class="custom-file-input" name="productImage">
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td style="font-weight: bold;">Trạng thái của sản phẩm :</td>

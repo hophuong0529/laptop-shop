@@ -1,17 +1,29 @@
 @extends('admin.ad-nav')
 @section('content')
 <h1 style="padding: 30px; text-align: center;">Chỉnh sửa thông tin sản phẩm</h1>
+@if(session()->has('message'))
+<div class="alert alert-success">
+	{{ session()->get('message') }}
+</div>
+@endif
+@if ($errors->any())
+<div class="alert alert-danger">
+	@foreach ($errors->all() as $error)
+	{{ $error }}<br>
+	@endforeach
+</div>
+@endif 
 <div>
 	<form method="post" enctype="multipart/form-data">
 		@csrf
 		<table class="table table-boredred">
 			<tbody>
 				<tr>
-					<td style="font-weight: bold;">Hãng : </td>
+					<td style="font-weight: bold;" width="20%">Hãng : </td>
 					<td>
-						<select name="hangId">
+						<select name="brandId" class="custom-select">
 							@foreach($brands as $brand)
-							<option value="{{$brand->id}}" <?=$product->hangId!=$brand->id?:'selected'?>>{{$brand->tenHang}}</option>
+							<option value="{{$brand->id}}" <?=$product->brandId==$brand->id?'selected':''?>>{{$brand->tenHang}}</option>
 							@endforeach
 						</select>
 					</td>
@@ -27,9 +39,17 @@
 				<tr>
 					<td style="font-weight: bold;">Hình ảnh sản phẩm :</td>
 					<td>
-						<img width="20%" src="/img/products/{{$product->productImage}}">
-						<br>Chọn tệp khác :&emsp; 
-						<input type="file" name="productImage">
+						<div class="row">
+							<div class="col-md-6" style="padding-left: 100px;">
+								<img src="/img/products/{{$product->productImage}}" width="60%">
+							</div>
+							<div class="col-md-6" style="padding-top: 20px;">
+								<div class="custom-file">   
+									<label class="custom-file-label" for="customFile">Chọn file ...</label>
+									<input type="file" class="custom-file-input" name="productImage">
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>

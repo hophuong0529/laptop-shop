@@ -4,7 +4,7 @@
 <table class="table" style="text-align: center;">
 	<thead>
 		<tr>
-			<th width="15%">Hình ảnh</th>
+			<th width="15%">Ảnh đại diện</th>
 			<th width="15%">Tên khách hàng</th>
 			<th width="15%">Tên đăng nhập</th>
 			<th width="15%">Điện thoại</th>
@@ -24,7 +24,7 @@
 			<td>{{$member->mobile}}</td>
 			<td>{{$member->email}}</td>
 			<td>{{$member->address}}</td>
-			<td><a href="{{url('admin/memberDelete/'.$member->id)}}"><i class="fa fa-close" style="color: red;"></i></a></td>
+			<td><a onclick="return confirm('Bạn có chắc chắn xóa?')" class="fa fa-close" style="color: red;"href="{{url('admin/memberDelete/'.$member->id)}}"></a></td>
 		</tr>
 		@endforeach 
 	</tbody>

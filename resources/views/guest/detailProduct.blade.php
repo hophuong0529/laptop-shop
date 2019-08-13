@@ -20,7 +20,7 @@
 		<div style="padding-left: 70px; padding-top: 60px;">
 			<h4>Mô tả sản phẩm : </h4>
 			<br>
-			<?= html_entity_decode($product->productDescription); ?>
+			<p>{{$product->productDescription}}</p>
 		</div>
 	</div>
 @stop

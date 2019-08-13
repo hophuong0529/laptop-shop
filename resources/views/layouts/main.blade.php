@@ -13,24 +13,24 @@
 <body>
 	@include('layouts/header')
 	@include('layouts/message')
-	<div class="container-fluid row">
-		<div class="col-md-3">
+
+	<div class="container-fluid row" style="padding-top: 0px">
+		<div class="col-md-3" style="padding-right: 10px;">
 			@include('layouts/left')
 		</div>
 		<div class="col-md-9 content">
 			@yield("content")
 		</div>	
 	</div>	
+	
 	@include('layouts/news')
+	
+	<button class="btn" id="goTop"><i style="font-size: 26px; line-height: 35px;" class="fa fa-sort-up"></i></button>
+
 	@include('layouts/footer')
-	<script type="text/javascript">
-		if (window.location.pathname === '/') {
-			document.getElementById("ads").style.display = "block";
-		}
-	</script>
 	<script src="/js/app.js?v={{env('APP_ENV') == 'local' ? time() : base64(2)}}"></script>	
 	<script src="/js/nav.js"></script>
 	@stack("scripts")
-	
+
 </body>
 </html>	

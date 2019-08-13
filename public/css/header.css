@@ -1,13 +1,33 @@
 body{
-	background-color: rgba(0,0,0,0.07);
+	background-color: rgba(0,0,0,.08);
+	font-family: Roboto;
+	font-size: 15px;
 }
 header{
-	height: 150px;
-	background-color: rgba(0,0,0,0.9);
+	height: 120px;
+	background-color: rgba(0,0,0,.9);
 	padding-left: 0!important;
 	padding-right: 0!important;
 }
-
+#goTop {
+	display: none;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	border-radius: 50px!important;
+	z-index: 99;
+	outline: none;
+	background-color: rgba(0,0,0,.3);
+	color: white;
+	cursor: pointer;
+	padding: 18px 22px 4.55px 22px;
+	border-radius: 4px;
+}
+.fa-phone{
+	font-size: 16px; 
+	line-height: 18px;
+}
 @font-face {
  	 font-family: Crass;
   	src: url(../fonts/Crass.ttf);
@@ -16,47 +36,49 @@ header{
   	font-family: Mightype;
   	src: url(../fonts/Mightype.otf);
 }
+@font-face {
+  	font-family: Roboto;
+  	src: url(../fonts/Roboto-Regular.ttf);
+}
 .title h1{
-	padding-top: 25px;
+	padding-top: 10px;
 	color: rgb(255,106,2);
 	font-family: Crass;
-    padding-left: 100px;
+    padding-left: 90px;
 }
 .title p{
 	color: white;
-	padding-left: 100px;
+	padding-left: 90px;
 	font-size: 15px;
 }
 #contact{
 	position: absolute;
-	right: 20px;
-	padding-top: 20px;
+	right: 50px;
+	padding-top: 8px;
 }
 #contact ul li{
-	padding-top: 10px;
+	padding-top: 3px;
 	line-height: 20px;
 	list-style: none;
 	color: white;
-}
-.btn-light{
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: .25rem;
-	border-top-right-radius: .25rem;
-	border-top-left-radius: 0px;
+	float: right;
 }
 .input-group{
-	padding-top: 40px;
+	padding-left: 40px;
+	padding-right: 45px;
+	padding-top: 25px;
 }
 nav{
 	background-color: rgb(255,106,2)!important;
 	z-index: 999;
 }
 .header{
-	background-color: #ff5200;
+	background-color: #ff5200!important;
 	color: white;
+	font-size: .95rem;
 }
 .slide{
-	padding-top: 25px;
+	padding-top: 10px;
 	padding-left: 30px;
 }
 .container-fluid{
@@ -65,13 +87,15 @@ nav{
 }
 .content{
 	background-color: white;
-	height: 1100px;
-	margin-top: 20px;
+	height: 1371px;
+	margin-top: 15px;
 	padding-top: 20px;
+	padding-left: 25px;
 }
 .list-group{
-	padding-top: 20px;
-	padding-left: 30px;
+	padding-top: 15px;
+	padding-left: 20px;
+	padding-right: 10px;
 }
 .text{
 	color: rgb(255,106,2);
@@ -85,8 +109,9 @@ nav{
 	padding: 8px 12px;
 }
 .mess{
-	width: 392px;
-	height: 210px;
+	padding-left: 5px;
+	width: 380px;
+	height: 202px;
     background-color: #fff;
     border-radius: 12px;
     bottom: 0;
@@ -109,7 +134,7 @@ nav{
 	padding-left: 35px;
 }
 .btn-mess a{
-	width: 275px; 
+	width: 89%; 
 	border-radius: 12px;
 }
 .name{
@@ -120,10 +145,15 @@ nav{
 .card-title a:hover{
 	color: rgb(255,106,2);
 }
-
 .card-title a{
 	color: #ba1826;
 }
 .row{
 	margin-right: 0px;
+}
+.list-group-item{
+	background-color: rgba(0,0,0,.95);
+}
+.list-group-item-action{
+	color: rgba(255,255,255,.75);
 }

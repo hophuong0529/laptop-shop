@@ -10,8 +10,8 @@
 	border: #ff5200 thin solid; 
 	border-radius: 5%;
 	margin-top: 10px;
-	margin-left: 50px;
-	margin-right: 250px;
+	margin-left: 0px;
+	margin-right: 300px;
 }
 .content{
 	background-color: rgba(0,0,0,0)!important;

@@ -8,7 +8,7 @@
 	margin-right: 5px; 
 }
 .thumbnail{
-	padding: 20px;
+	padding: 10px;
 }
 .order{
 	padding-top: 10px;
@@ -18,5 +18,28 @@
 	font-size: 40px;
 }
 .home{
+	padding: 30px;
 	text-align: center;
+}
+.imgProduct{
+  	transition: transform 0.5s !important; /* Animation */
+}
+
+.imgProduct:hover {
+	z-index: 1;
+  	transform: scale(1.2) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+#pagination{
+	float: right; 
+	display: none;
+	margin-top: 30px; 
+	margin-right: 20px;
+	position: inherit;
+}
+.page-item.active .page-link{
+ 	background-color: #ba1826;
+ 	border-color: #ba1826; 
+}
+.page-link{
+	color: black;
 }

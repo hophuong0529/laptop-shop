@@ -1,5 +1,5 @@
 <footer>
-	<div class="site-footer" style="padding-top: 20px; border-top: rgb(255,106,2) solid 5px;">		
+	<div class="site-footer">		
 		<div class="container">			
 			<div class="footer-inner">
 				<div class="row">

@@ -1,4 +1,4 @@
-<div class="row" style="padding: 20px 0px 5px 15px;">
+<div class="row" style="padding: 10px 0px 0px 15px;">
   @foreach($news as $new)
   <div class="col-md-4">
     <div class="card">

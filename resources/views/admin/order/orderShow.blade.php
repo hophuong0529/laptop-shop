@@ -34,7 +34,7 @@
 			</td>
 			<td style="text-align: initial; padding-left: 100px;">
 				<a style="padding-right: 40px; text-decoration: none;" class="fa fa-edit" href="{{url('admin/orderEdit/'.$order->id)}}"></a>
-				<a style="color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/orderDelete/'.$order->id)}}"></a>
+				<a onclick="return confirm('Bạn có chắc chắn xóa?')" style="color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/orderDelete/'.$order->id)}}"></a>
 			</td>
 		</tr>
 		@endforeach 

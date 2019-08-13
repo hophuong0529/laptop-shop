@@ -12,7 +12,7 @@
 
 </div>  
 
-<div class="list-group">
+<div class="list-group" style="padding-top: 19px;">
 
 	<h6 class="list-group-item header"><i class="fa fa-bars"></i>&emsp;GIÁ SẢN PHẨM</h6>
 
@@ -24,4 +24,7 @@
 
 	@endforeach
 
+</div>
+<div id="ads2" style="display: block;">	
+	<img src="/img/left2.jpg" width="100%" style="padding: 19.5px 5px 0px 15px">
 </div>

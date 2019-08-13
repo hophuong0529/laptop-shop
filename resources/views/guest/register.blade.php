@@ -9,8 +9,15 @@
 	<br><br>
 
 	@if(session('alert'))
-    <section class="alert alert-danger">{{session('alert')}}</section>
-    @endif
+	<section class="alert alert-danger">{{session('alert')}}</section>
+	@endif
+	@if ($errors->any())
+	<div class="alert alert-danger">
+		@foreach ($errors->all() as $error)
+		{{ $error }}<br>
+		@endforeach
+	</div>
+	@endif 
 
 	<form method="post">
 		@csrf

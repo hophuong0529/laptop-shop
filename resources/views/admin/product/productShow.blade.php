@@ -35,7 +35,7 @@
 			<td>{{$product->tenHang}}</td>
 			<td style="text-align: initial; padding-left: 100px;">
 				<a style="padding-right: 40px; text-decoration: none;" class="fa fa-edit" href="{{url('admin/productEdit/'.$product->id)}}"></a>
-				<a style="display: <?=$has==0?:'none'?>; color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/productDelete/'.$product->id)}}"></a>
+				<a onclick="return confirm('Bạn có chắc chắn xóa?')" style="display: <?=$has==0?:'none'?>; color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/productDelete/'.$product->id)}}"></a>
 			</td>
 		</tr>
 		@endforeach 

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div style="margin-right: 80px;">
+<div style="margin-right: 80px; padding-left: 25px;">
 <h1 style="text-align: center; padding: 20px;">Tin Tức</h1>
 <table class="table">
 	<tbody>

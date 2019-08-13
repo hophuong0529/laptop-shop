@@ -9,7 +9,7 @@ footer ul{
 }
 footer{
 	background-color: rgba(0,0,0,0.9); 
-	margin-top: 20px;
+	margin-top: 15px;
 }
 footer span{
 	color: white;
@@ -27,4 +27,9 @@ footer p{
 	background-color: black; 
 	line-height: 28px;
 	text-align: center;
+}
+.site-footer{
+	padding-top: 25px; 
+	border-top: rgb(255,106,2) solid 5px; 
+	padding-bottom: 5px;
 }

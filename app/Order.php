@@ -12,5 +12,9 @@ class Order extends Model
 		return $this->belongsTo(Member::class,'userId','id');
 	}
 
+	public function orderMethod() {
+		return $this->belongsTo(OrderMethod::class,'methodId','id');
+	}
+
 }
 

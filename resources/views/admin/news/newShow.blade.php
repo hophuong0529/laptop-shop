@@ -27,7 +27,7 @@
 			<td>{{$new->created_at}}</td>
 			<td style="text-align: initial; padding-left: 70px;">
 				<a style="padding-right: 40px; text-decoration: none;" class="fa fa-edit" href="{{url('admin/newEdit/'.$new->id)}}"></a>
-				<a style="color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/newDelete/'.$new->id)}}"></a>
+				<a onclick="return confirm('Bạn có chắc chắn xóa?')" style="color: red; text-decoration: none;" class="fa fa-close" href="{{url('admin/newDelete/'.$new->id)}}"></a>
 			</td>
 		</tr>
 		@endforeach 

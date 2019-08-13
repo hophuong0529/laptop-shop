@@ -1,18 +1,30 @@
 @extends('admin.ad-nav')
 @section('content')
 <h1 style="padding: 30px; text-align: center;">Thêm bài viết</h1>
+@if ($errors->any())
+<div class="alert alert-danger">
+	@foreach ($errors->all() as $error)
+	{{ $error }}<br>
+	@endforeach
+</div>
+@endif 
 <div>
 	<form method="post" enctype="multipart/form-data">
 		@csrf
 		<table class="table table-boredred">
 			<tbody>
 				<tr>					
-					<td style="font-weight: bold;">Tiêu đề :</td>
+					<td style="font-weight: bold" width="25%">Tiêu đề :</td>
 					<td><input name="title" type="text" class="form-control"></td>
 				</tr>
 				<tr>
-					<td style="font-weight: bold;">Hình ảnh sản phẩm :</td>
-					<td>Chọn tệp khác :&emsp; <input type="file" name="imgNew"></td>
+					<td style="font-weight: bold;">Hình ảnh bài viết :</td>
+					<td>
+						<div class="custom-file">   
+							<label class="custom-file-label" for="customFile">Chọn file ...</label>
+							<input type="file" class="custom-file-input" name="imgNew">
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td style="font-weight: bold;">Nội dung :</td>
