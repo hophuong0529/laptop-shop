@@ -1,13 +1,6 @@
 @extends('admin.ad-nav')
 @section('content')
 <h1 style="padding: 30px; text-align: center;">Thêm bài viết</h1>
-@if ($errors->any())
-<div class="alert alert-danger">
-	@foreach ($errors->all() as $error)
-	{{ $error }}<br>
-	@endforeach
-</div>
-@endif 
 <div>
 	<form method="post" enctype="multipart/form-data">
 		@csrf
@@ -18,11 +11,11 @@
 					<td><input name="title" type="text" class="form-control"></td>
 				</tr>
 				<tr>
-					<td style="font-weight: bold;">Hình ảnh bài viết :</td>
+					<td style="font-weight: bold;">Hình ảnh sản phẩm :</td>
 					<td>
 						<div class="custom-file">   
 							<label class="custom-file-label" for="customFile">Chọn file ...</label>
-							<input type="file" class="custom-file-input" name="imgNew">
+							<input type="file" class="custom-file-input" name="productImage">
 						</div>
 					</td>
 				</tr>

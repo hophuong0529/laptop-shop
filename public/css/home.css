@@ -27,12 +27,12 @@
 
 .imgProduct:hover {
 	z-index: 1;
-  	transform: scale(1.2) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  	transform: scale(1.25) !important; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 #pagination{
 	float: right; 
 	display: none;
-	margin-top: 30px; 
+	margin-top: 35px; 
 	margin-right: 20px;
 	position: inherit;
 }

@@ -34,7 +34,7 @@
 				<tr>
 					<td style="font-weight: bold;">Nội dung :</td>
 					<td>
-						<textarea name="content" class="form-control" rows="10"><?= htmlspecialchars_decode($new->content) ?></textarea>
+						<textarea name="content" class="form-control" rows="10">{{$new->content}}</textarea>
 						<!-- <script>CKEDITOR.replace('newDescription');</script> -->
 					</td>
 				</tr>
