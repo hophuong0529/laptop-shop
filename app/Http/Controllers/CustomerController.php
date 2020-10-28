@@ -19,23 +19,13 @@ class CustomerController extends Controller
 	public function index(){
 
 		$this->data['title'] = 'Laptop';
-		$products=Product::where('status',1)->where('id','<=',16)->get();
+		$products=Product::where('status',1)->paginate(16);
 		$this->data['products'] = $products ?? [];
 		$news= News::whereIn('id', [3,2,5])->get();
 		$this->data['news'] = $news ?? [];
+		$products->setPath('custom/url');
 		return view('guest.home',$this->data);
 	}
-
-	public function page2(){
-
-		$this->data['title'] = 'Laptop';
-		$products=Product::where('status',1)->where('id','>',16)->get();
-		$this->data['products'] = $products ?? [];
-		$news= News::whereIn('id', [3,2,5])->get();
-		$this->data['news'] = $news ?? [];
-		return view('guest.home',$this->data);
-	}
-
 
 	public function introduce(){
 

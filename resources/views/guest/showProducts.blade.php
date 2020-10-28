@@ -26,19 +26,8 @@
 	</div>				
 	@endif	
 	<div id="pagination">
-		<ul class="pagination">
-			<li class="page-item">
-				<a class="page-link" href="/"><i class="fa fa-angle-double-left"></i></a>
-			</li>
-			<li class="page-item {{ request()->is('/') ? 'active' : '' }}">
-				<a class="page-link" href="/">1</a>
-			</li>
-			<li class="page-item {{ request()->is('page=2') ? 'active' : '' }}">
-				<a class="page-link" href="{{url('page=2')}}">2</a>
-			</li>
-			<li class="page-item">
-				<a class="page-link" href="{{url('page=2')}}"><i class="fa fa-angle-double-right"></i></a>
-			</li>
-		</ul>	
+		<div class="d-flex justify-content-center">
+            {{ $products->links() }}
+    	</div>
 	</div>
 </section>

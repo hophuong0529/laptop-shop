@@ -6,3 +6,17 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Font-awesome
+@import '~font-awesome/scss/font-awesome';
+
+.nav-primary {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.2);
+}
+.dropleft .dropdown-menu {
+    top: 46px;
+    right: -3px;
+    left: auto;
+    margin-top: 0;
+    margin-right: .125rem;
+}
