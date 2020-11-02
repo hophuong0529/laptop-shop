@@ -18,7 +18,7 @@
 		<div class="col-md-3" style="padding-right: 10px;">
 			@include('layouts/left')
 		</div>
-		<div class="col-md-9 content">
+		<div class="col-md-9 content" style="height: 1460px;">
 			@yield("content")
 		</div>	
 	</div>	

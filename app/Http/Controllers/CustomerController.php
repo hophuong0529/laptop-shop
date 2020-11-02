@@ -23,7 +23,6 @@ class CustomerController extends Controller
 		$this->data['products'] = $products ?? [];
 		$news= News::whereIn('id', [3,2,5])->get();
 		$this->data['news'] = $news ?? [];
-		$products->setPath('custom/url');
 		return view('guest.home',$this->data);
 	}
 
