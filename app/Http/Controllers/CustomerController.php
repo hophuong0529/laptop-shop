@@ -99,7 +99,7 @@ class CustomerController extends Controller
 
 		if($action=='mahang'){
 
-			$products = Product::where('status',1)->where('brandId',$id)->get();
+			$products = Product::where('status',1)->where('brandId',$id)->paginate(16);
 
 		}elseif ($action=='mucgia') {
 
@@ -107,18 +107,18 @@ class CustomerController extends Controller
 
 			if(empty($mucgia->priceTo)){
 
-				$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)->get();
+				$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)->paginate(16);
 			}else{
 
 				$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)
 				->where('productPrice','<=',$mucgia->priceTo*1000000)
-				->get();
+				->paginate(16);
 			}	
 
 		}elseif ($action=='findKey'){
 
 			$key=$request->input('keyword');
-			$products=Product::where('productName','like','%'.$key.'%')->get();		
+			$products=Product::where('productName','like','%'.$key.'%')->paginate(16);		
 		}
 
 		$this->data['products'] = $products ?? [];
