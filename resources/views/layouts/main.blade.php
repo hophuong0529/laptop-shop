@@ -8,11 +8,12 @@
 	<link rel="stylesheet" href="/css/app.css">	
 	<link rel="stylesheet" href="/css/header.css">
 	<link rel="stylesheet" href="/css/footer.css">
+	<script src="https://kit.fontawesome.com/a7e8114d11.js" crossorigin="anonymous"></script>
 	@stack("styles")
 </head>
 <body>
 	@include('layouts/header')
-	@include('layouts/message')
+	<!-- @include('layouts/message') -->
 
 	<div class="container-fluid row" style="padding-top: 0px">
 		<div class="col-md-3" style="padding-right: 10px;">
@@ -25,7 +26,9 @@
 	
 	@include('layouts/news')
 	
-	<button class="btn" id="goTop"><i style="font-size: 26px; line-height: 35px;" class="fa fa-sort-up"></i></button>
+	<button class="btn" id="goTop">
+		<i style="font-size: 26px; line-height: 35px;" class="fa fa-sort-up"></i>
+	</button>
 
 	@include('layouts/footer')
 	<script src="/js/app.js?v={{env('APP_ENV') == 'local' ? time() : base64(2)}}"></script>	

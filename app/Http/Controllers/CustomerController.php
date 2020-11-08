@@ -19,9 +19,9 @@ class CustomerController extends Controller
 	public function index(){
 
 		$this->data['title'] = 'Laptop';
-		$products=Product::where('status',1)->paginate(16);
+		$products=Product::where('quantity','>',0)->orderBy('quantity','desc')->paginate(16);
 		$this->data['products'] = $products ?? [];
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		return view('guest.home',$this->data);
 	}
@@ -29,7 +29,7 @@ class CustomerController extends Controller
 	public function introduce(){
 
 		$this->data['title'] = 'Giới thiệu';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];	
 		return view('guest.introduce',$this->data);
 	}
@@ -37,7 +37,7 @@ class CustomerController extends Controller
 	public function contact(){
 
 		$this->data['title'] = 'Liên hệ';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];	
 		return view('guest.contact',$this->data);
 	}
@@ -45,7 +45,7 @@ class CustomerController extends Controller
 	public function register(){
 
 		$this->data['title'] = 'Đăng ký';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];	
 		return view('guest.register',$this->data);
 	}
@@ -53,7 +53,7 @@ class CustomerController extends Controller
 	public function login(){
 
 		$this->data['title'] = 'Đăng nhập';	
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		return view('guest.login',$this->data);
 	}
@@ -61,7 +61,7 @@ class CustomerController extends Controller
 	public function order(){
 
 		$this->data['title'] = 'Đặt hàng';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$member = Member::where('username',session('user'))->first();
 		$ordermethods = OrderMethod::where('status',1)->get();
@@ -71,10 +71,41 @@ class CustomerController extends Controller
 		return view('user.order',$this->data);
 	}
 
+	public function postOrder(Request $request){
+		
+		$member=Member::where('username',session('user'))->first();
+		$userId=$member->id;
+		$methodId=$request->input('methodId');
+		Order::insert([
+			'userId'=>$userId,
+			'methodId'=>$methodId,
+			'orderDate'=>now()
+		]);
+		$order = Order::orderBy('id','desc')->first();
+		$orderId = $order->id;
+		foreach (array_keys(session('cart')) as $productId):
+			$quantity = session("cart.$productId");
+			$product = Product::where('id',$productId)->first();
+			$quantity_product = $product->quantity;
+			$product->update([
+				'quantity' => ($quantity_product - $quantity)
+			]);
+			$price = Product::where('id',$productId)->first()->productPrice;
+			OrderDetail::insert([
+				'orderId'=>$orderId,
+				'productId'=>$productId,
+				'quantity'=>$quantity,
+				'price'=>$price
+			]);
+		endforeach;
+		session()->forget("cart");
+		return redirect()->back()->with('alert','success');
+	}
+
 	public function viewInfo(){
 
 		$this->data['title'] = 'Thông tin tài khoản';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$member = Member::where('username',session('user'))->first();
 		$this->data['member'] = $member ?? [];
@@ -85,7 +116,7 @@ class CustomerController extends Controller
 	public function changeInfo(){
 
 		$this->data['title'] = 'Chỉnh sửa thông tin tài khoản';	
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$member = Member::where('username',session('user'))->first();
 		$this->data['member'] = $member ?? [];
@@ -99,7 +130,7 @@ class CustomerController extends Controller
 
 		if($action=='mahang'){
 
-			$products = Product::where('status',1)->where('brandId',$id)->paginate(16);
+			$products = Product::where('quantity','>',0)->where('brandId',$id)->paginate(16);
 
 		}elseif ($action=='mucgia') {
 
@@ -107,10 +138,10 @@ class CustomerController extends Controller
 
 			if(empty($mucgia->priceTo)){
 
-				$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)->paginate(16);
+				$products=Product::where('quantity','>',0)->where('productPrice','>=',$mucgia->priceFrom*1000000)->paginate(16);
 			}else{
 
-				$products=Product::where('status',1)->where('productPrice','>=',$mucgia->priceFrom*1000000)
+				$products=Product::where('quantity','>',0)->where('productPrice','>=',$mucgia->priceFrom*1000000)
 				->where('productPrice','<=',$mucgia->priceTo*1000000)
 				->paginate(16);
 			}	
@@ -123,7 +154,7 @@ class CustomerController extends Controller
 
 		$this->data['products'] = $products ?? [];
 		$this->data['title'] = 'Kết quả tìm kiếm';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		return view('guest.home',$this->data);
 	}
@@ -216,8 +247,8 @@ class CustomerController extends Controller
 			break;	
 
 			case 'update':
-			foreach (array_keys(session('cart')) as $key) {
-				session(["cart.$key"=>$request->input($key)]);
+			foreach (array_keys(session('cart')) as $productId) {
+				session(["cart.$productId"=>$request->input($productId)]);
 			}
 			return redirect("cart");
 			break;
@@ -243,38 +274,13 @@ class CustomerController extends Controller
 
 			default:
 			$this->data['title'] = 'Giỏ hàng của bạn';
-			$news= News::whereIn('id', [3,2,5])->get();
+			$news= News::orderBy('created_at','desc')->paginate(3);
 			$this->data['news'] = $news ?? [];	
 			return view('guest.cart',$this->data);
 			break;	
 		}
 	}
 
-	public function postOrder(Request $request){
-		
-		$member=Member::where('username',session('user'))->first();
-		$userId=$member->id;
-		$methodId=$request->input('methodId');
-		Order::insert([
-			'userId'=>$userId,
-			'methodId'=>$methodId,
-			'orderDate'=>now()
-		]);
-		$order = Order::orderBy('id','desc')->first();
-		$orderId = $order->id;
-		foreach (array_keys(session('cart')) as $productId):
-			$quantity = session("cart.$productId");
-			$price = Product::where('id',$productId)->first()->productPrice;
-			OrderDetail::insert([
-				'orderId'=>$orderId,
-				'productId'=>$productId,
-				'quantity'=>$quantity,
-				'price'=>$price
-			]);
-		endforeach;
-		session()->forget("cart");
-		return redirect()->back()->with('alert','success');
-	}
 
 	public function updateInfo(Request $request){
 
@@ -290,7 +296,7 @@ class CustomerController extends Controller
 
 	public function detailProduct($id){
 
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$product = Product::find($id);
 		$this->data['title'] = $product->productName;
@@ -302,7 +308,7 @@ class CustomerController extends Controller
 	public function detailNew($id){
 
 		
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$new= News::find($id);
 		$this->data['title'] = $new->title;
@@ -314,7 +320,7 @@ class CustomerController extends Controller
 	public function news(){
 
 		$this->data['title'] = 'Tin tức';
-		$news= News::whereIn('id', [3,2,5])->get();
+		$news= News::orderBy('created_at','desc')->paginate(3);
 		$this->data['news'] = $news ?? [];
 		$newss= News::get();
 		$this->data['newss'] = $newss ?? [];
@@ -326,6 +332,9 @@ class CustomerController extends Controller
 		session()->forget('user');
 		if(session('cart')){
 			session()->forget('cart');
+		}
+		if(session('total')){
+			session()->forget('total');
 		}
 		return redirect('/');
 	}

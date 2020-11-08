@@ -13,14 +13,17 @@
 			</p>
 			<hr>
 			<h2>Giá : <span style="color: #d0011b;">{{number_format($product->productPrice,0,',','.')}} ₫<span></h2>
-				<br>	
-				<a href="{{url('cart/add/'.$product->id)}}" class="btn btn-outline-danger" style="width: 200px;">Đặt mua</a>
+			<div style="color: red;">
+				* Chỉ còn {{$product->quantity}} sản phẩm 
 			</div>
-		</div>
-		<div style="padding-left: 70px; padding-top: 60px;">
-			<h4>Mô tả sản phẩm : </h4>
-			<br>
-			<p>{{$product->productDescription}}</p>
+			<br>	
+			<a href="{{url('cart/add/'.$product->id)}}" class="btn btn-outline-danger" style="width: 200px;">Đặt mua ngay</a>
 		</div>
 	</div>
+	<div style="padding-left: 70px; padding-top: 60px;">
+		<h4>Mô tả sản phẩm : </h4>
+		<br>
+		<p>{{$product->productDescription}}</p>
+	</div>
+</div>
 @stop
