@@ -99,7 +99,7 @@ class CustomerController extends Controller
 			]);
 		endforeach;
 		session()->forget("cart");
-		return redirect()->back()->with('alert','success');
+		echo "<script>alert('Bạn đã đặt hàng thành công. Shop sẽ gọi xác nhận cho bạn ạ!'); location='.'</script>";
 	}
 
 	public function viewInfo(){

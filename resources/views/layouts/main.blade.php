@@ -8,12 +8,12 @@
 	<link rel="stylesheet" href="/css/app.css">	
 	<link rel="stylesheet" href="/css/header.css">
 	<link rel="stylesheet" href="/css/footer.css">
-	<script src="https://kit.fontawesome.com/a7e8114d11.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	@stack("styles")
 </head>
 <body>
 	@include('layouts/header')
-	<!-- @include('layouts/message') -->
+	@include('layouts/message')
 
 	<div class="container-fluid row" style="padding-top: 0px">
 		<div class="col-md-3" style="padding-right: 10px;">

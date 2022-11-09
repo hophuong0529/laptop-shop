@@ -12,7 +12,7 @@
 			</div>
 		</div>	
 		<div class="btn-mess">
-			<a href="https://www.facebook.com/" class="btn btn-primary"><i class="fa fa-comments" style="font-size: 25px;"></i>&emsp;Đăng nhập vào Messenger</a>
+			<a href="https://www.messenger.com/t/101354025280430" class="btn btn-primary"><i class="fa fa-comments" style="font-size: 25px;"></i>&emsp;Đăng nhập vào Messenger</a>
 		</div>
 		<div class="subButtonText">
 			<p>Chat với Laptop.cc trong Messenger</p>

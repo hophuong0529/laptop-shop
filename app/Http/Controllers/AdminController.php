@@ -63,7 +63,7 @@ class AdminController extends Controller
 
     public function orders(){
 
-        $orders = Order::all();
+        $orders = Order::with('orderUser')->get();
         $this->data['orders'] = $orders ?? [];
         $this->data['title'] = 'Danh sách hóa đơn';
         return view('admin.order.orderShow',$this->data);

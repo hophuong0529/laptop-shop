@@ -6,6 +6,7 @@
 	<meta name="csrf-token" content="{{csrf_token()}}">
 	<title>{{ $title ?? "" }}</title>
 	<link rel="stylesheet" href="/css/app.css">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	@stack("styles")
 </head>
 <style>

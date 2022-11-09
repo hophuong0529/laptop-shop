@@ -14,10 +14,10 @@ $products=DB::table('products')->whereIn('id',array_keys(session('cart')))->get(
 		<form method="post" action="{{url('cart/update')}}" id= "frm">
 			@csrf
 			<div class="cart row" style="font-weight: bold;color: #ba1826;padding-bottom: 10px;">
-				<div class="col-md-2">Hình ảnh</div>
-				<div class="col-md-2">Tên sản phẩm</div>	
-				<div class="col-md-2">Đơn giá</div>
-				<div class="col-md-2">Số lượng</div>
+				<div class="col-md-2">Image</div>
+				<div class="col-md-2">Product Name</div>	
+				<div class="col-md-2">Price</div>
+				<div class="col-md-2">Quant</div>
 				<div class="col-md-2">Thành tiền</div>
 				<div class="col-md-2"></div>	
 			</div>
@@ -56,7 +56,7 @@ $products=DB::table('products')->whereIn('id',array_keys(session('cart')))->get(
 		</form>
 		<hr>
 		<div>
-			<a onclick="return confirm('Bạn có chắc xóa tất cả trong giỏ hàng ?');" class="btn btn-danger" href="{{ url('cart/deleteall') }}" style="width: 150px;">Xóa tất cả</a>
+			<a onclick="return confirm('Bạn có chắc xóa tất cả trong giỏ hàng ?');" class="btn btn-danger" href="{{ url('cart/delete-all') }}" style="width: 150px;">Xóa tất cả</a>
 			&nbsp;
 			<input type="submit" value="Cập nhật giỏ hàng" form="frm" class="btn btn-success" style="width: 150px;">
 			&nbsp;

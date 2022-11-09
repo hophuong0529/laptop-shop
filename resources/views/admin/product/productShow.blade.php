@@ -5,13 +5,14 @@
 		<h1 style="text-align: center;">Danh sách sản phẩm</h1>
 	</div>
 	<div class="col-md-2">
-		<a href="{{url('admin/productAdd')}}" class="btn btn-success" style="width: 150px;"><i class="fa fa-plus"></i> Thêm</a>
+		<a href="{{url('admin/productAdd')}}" class="btn btn-success" style="width: 150px;"><i class="fa fa-plus"></i> Add</a>
 	</div>
 </div>
 <table class="table" style="text-align: center;">
 	<thead>
 		<tr>
-			<th width="20%">Hình ảnh</th>
+			<th width="5%">STT</th>
+			<th width="15%">Hình ảnh</th>
 			<th width="25%">Tên sản phẩm</th>
 			<th width="20%">Giá sản phẩm</th>
 			<th width="15%">Hãng</th>
@@ -19,7 +20,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($products as $product)
+		@foreach($products as $key => $product)
 		<?php $has=0;?>
 		@foreach($orderDetails as $orderDetail)
 			@if($product->id==$orderDetail->productId)
@@ -27,8 +28,9 @@
 			@endif
 		@endforeach
 		<tr>
+			<td>{{$key+1}}</td>
 			<td style="padding: 0.5px!important;">
-				<img width="40%" src="/img/products/{{$product->productImage}}" alt="">
+				<img style="height: 70px;" src="/img/products/{{$product->productImage}}" alt="">
 			</td>
 			<td>{{$product->productName}}</td>
 			<td>{{number_format($product->productPrice,0,',','.')}}</td>
